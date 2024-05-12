@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html{
+  font-size: 62.5%;
+  box-sizing: border-box;
+  color-scheme: dark light;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body, area, menu, ul, a, img {
+  all: unset;
+}
+
+body {
+  min-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(227,227,227,1) 0%, rgba(242,242,242,1) 100%);
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  outline: none;
+}

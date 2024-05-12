@@ -1,0 +1,19 @@
+header {
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  max-height: 4rem;
+  width: auto;
+}
+
+header p{
+  color: rgba(0, 0, 0, 1);
+  padding: 0 0.5rem;
+  font-size: var(--extra-big-font-size);
+}
