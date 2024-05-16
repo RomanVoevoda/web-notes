@@ -1,10 +1,10 @@
 :root{
   --footer-icons-size: 6rem;
   --extra-big-font-size: 4rem;
-  --header-font-size: 2.8rem;
-  --normal-font-size: 2.4rem;
-  --smaller-font-size: 2rem;
-  --normal-text-indent: 0.8rem;
+  --header-font-size: 2rem;
+  --normal-font-size: 1.6rem;
+  --smaller-font-size: 1.4rem;
+  --normal-text-indent: 0.5rem;
 }
 
 @media screen and (min-width: 600px) {

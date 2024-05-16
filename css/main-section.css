@@ -1,20 +1,38 @@
 .main-section {
-  width: calc(100% - 2rem);
+  width: 100%;
   min-height: calc(100vh - 17rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: rgba(0, 0, 0, 1);
 }
 
-.note-table-section {
-  width: inherit;
+.notes-section {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
   min-height: inherit;
-  margin: 1rem;
-  border-style: solid;
-  border-radius: 2rem;
-  background-image:  linear-gradient(180deg, rgba(34, 40, 49, 0.1) 0%, rgba(34, 40, 49, 0.1) 100%), url("../images/background.jpg");
-  background-repeat: repeat-y, repeat-y;
-  background-attachment: fixed, fixed;
-  background-size: cover, cover;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background:  linear-gradient(180deg, rgba(34, 40, 49, 0.1) 0%, rgba(34, 40, 49, 0.2) 100%);
+}
+
+.notes-section::-webkit-scrollbar {
+  width: 0rem;
+}
+
+.notes-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notes-column {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
 }
