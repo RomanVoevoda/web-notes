@@ -1,0 +1,5 @@
+.change-flex-direction-span {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
