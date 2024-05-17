@@ -3,3 +3,11 @@
   display: flex;
   flex-direction: row-reverse;
 }
+
+.hide {
+  transform: translateY(-5.1rem);
+}
+
+.display-none {
+  display: none !important;
+}
