@@ -11,3 +11,7 @@
 .display-none {
   display: none !important;
 }
+
+.stop-scrolling {
+  overflow: hidden !important;
+}
