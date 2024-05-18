@@ -1,11 +1,30 @@
-.control-icons-container i {
+.control-icons-container i,
+.form-control-buttons i{
   color: rgba(197, 216, 109, 0.8);
   margin: 0.5rem 0.5rem;
   transition: transform 0.3s ease;
 }
 
-.control-icons-container i:first-child {
+.control-icons-container i:first-child,
+.form-control-buttons i:first-child{
   margin-left: 2rem;
+}
+
+.form-control-buttons .fa-arrow-turn-up {
+  margin-left: 0;
+  margin-right: 1rem;
+  transform: rotateZ(-90deg);
+}
+
+.form-control-buttons .fa-arrow-turn-down {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  transform: rotateZ(-90deg);
+}
+
+.form-control-buttons .fa-check {
+  margin-left: 0 !important;
+  margin-right: 1.5rem;
 }
 
 .control-icons-container .fa-caret-up {
@@ -63,17 +82,33 @@
 
 @media (hover:hover) {
   .mobile-create-note-button:hover,
-  .control-icons-container i:hover {
+  .control-icons-container i:hover,
+  .form-control-buttons i:hover{
     color: rgba(197, 216, 109, 0.9);
     cursor: pointer;
     transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  .form-control-buttons .fa-arrow-turn-up:hover,
+  .form-control-buttons .fa-arrow-turn-down:hover {
+    color: rgba(197, 216, 109, 0.9);
+    cursor: pointer;
+    transform: rotateZ(-90deg) scale3d(1.03, 1.03, 1.03);
   }
 }
 
 @media (hover:none){
   .mobile-create-note-button:active,
-  .control-icons-container i:active {
+  .control-icons-container i:active,
+  .form-control-buttons i:active{
     color: rgba(197, 216, 109, 0.9)
     transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  .form-control-buttons .fa-arrow-turn-up:active,
+  .form-control-buttons .fa-arrow-turn-down:active {
+    color: rgba(197, 216, 109, 0.9);
+    cursor: pointer;
+    transform: rotateZ(-90deg) scale3d(1.03, 1.03, 1.03);
   }
 }

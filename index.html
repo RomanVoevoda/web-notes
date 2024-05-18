@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/special-classes.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/main-section.css">
-  <link rel="stylesheet" href="css/control-icons.css">
+  <link rel="stylesheet" href="css/control-buttons.css">
+  <link rel="stylesheet" href="css/forms.css">
   <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="css/footer.css">
 
@@ -122,6 +123,30 @@
       <button class="mobile-create-note-button">
         <i class="fa-solid fa-plus"></i>
       </button>
+
+      <form class="note-creation-form display-none">
+        <div class="form-control-buttons">
+          <i class="fa-solid fa-arrow-left"></i>
+
+          <span class="change-flex-direction-span">
+            <i class="fa-solid fa-check display-none"></i>
+            <i class="fa-solid fa-arrow-turn-down"></i>
+            <i class="fa-solid fa-arrow-turn-up"></i>  
+          </span>
+        </div>
+
+        <textarea placeholder="Заголовок" maxlength="100" id="form-header-textarea" class="rubik-main-font"></textarea>
+
+        <p>
+          <span id="form-date-span">18 мая 15:27</span>
+          |
+          <span id="form-symbols-number-span">0</span>
+          символов
+        </p>
+
+        <textarea autofocus="autofocus" placeholder="Начните ввод" id="form-text-textarea" class="rubik-main-font"></textarea>
+      </form>
+
     </section>
   </section>
 
