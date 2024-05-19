@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const formHeaderTextarea = document.querySelector('#form-header-textarea');
 const formMainTextarea = document.querySelector('#form-text-textarea');

@@ -1,3 +1,5 @@
+'use strict';
+
 const hideControlPanelButton = document.querySelector('.control-icons-container .fa-caret-up');
 const openControlPanelButton = document.querySelector('.control-icons-container .fa-caret-down');
 
@@ -42,3 +44,20 @@ const createNoteButton = document.querySelector('.note-creation-form .change-fle
 const noteCreationDate = document.querySelector('#form-date-span');
 
 createNoteButton.addEventListener('click', () => createNewNote(formHeaderTextarea.value, formMainTextarea.value, currentCreationDate));
+
+
+
+const sortButton = document.querySelector('.control-icons-container i:first-child')
+
+sortButton.addEventListener('click', () => {
+  if( sortButton.classList.contains('fa-arrow-down-wide-short') ) {
+    sortButton.classList.remove('fa-arrow-down-wide-short');
+    sortButton.classList.add('fa-arrow-up-short-wide');
+  } else {
+    sortButton.classList.add('fa-arrow-down-wide-short');
+    sortButton.classList.remove('fa-arrow-up-short-wide');
+  }
+
+  sortNotesArray();
+  refreshMainSection();
+})

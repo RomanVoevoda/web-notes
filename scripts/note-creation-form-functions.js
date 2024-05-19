@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function calculateSymbolsCount() {
   return formHeaderTextarea.value.length + formMainTextarea.value.length;
@@ -34,5 +34,7 @@ function closeNoteCreationForm() {
 function createNewNote(header, body, date) {
   notesArray.push(new Note(header, body, date));
 
+  sortNotesArray();
+  refreshMainSection();
   closeNoteCreationForm();
 }

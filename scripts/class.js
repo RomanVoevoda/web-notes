@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const notesArray = [];
 let currentCreationDate;
@@ -14,6 +14,14 @@ class Note {
     this._mainText = `<p class="note-text">${mainText}</p>`;
     this._creationDate = creationDate;
     this._body = `<article class="small-note"> ${this.header} ${this.mainText} ${this.creationDate} </article>`
+  }
+
+  static compareNotes(firstNote, secondNote) {
+    return secondNote.dateTimestamp - firstNote.dateTimestamp;
+  }
+
+  static reverseCompareNotes(firstNote, secondNote) {
+    return firstNote.dateTimestamp - secondNote.dateTimestamp;
   }
 
   set header(headerText) {
@@ -38,6 +46,10 @@ class Note {
 
   get creationDate() {
     return `<p class="note-date">${setCreationDate( new Date(this._creationDate) )}</p>`;
+  }
+
+  get dateTimestamp() {
+    return Number(this._creationDate);
   }
 
   get body() {
