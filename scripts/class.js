@@ -1,3 +1,5 @@
+'use strict'
+
 const notesArray = [];
 let currentCreationDate;
 

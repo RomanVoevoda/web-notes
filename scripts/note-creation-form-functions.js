@@ -1,3 +1,5 @@
+'use strict'
+
 function calculateSymbolsCount() {
   return formHeaderTextarea.value.length + formMainTextarea.value.length;
 }

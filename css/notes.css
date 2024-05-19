@@ -15,6 +15,7 @@
 .small-note:hover {
   cursor: pointer;
   transform: scale3d(1.01, 1.01, 1.01);
+  transform-style: preserve-3d;
 }
 .note-header {
   font-size: var(--header-font-size);

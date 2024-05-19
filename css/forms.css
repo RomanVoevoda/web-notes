@@ -1,11 +1,11 @@
 .note-creation-form {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 6rem;
+  bottom: 8.5rem;
   z-index: 100;
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
