@@ -33,14 +33,12 @@ const openFormMobileButton = document.querySelector('.mobile-create-note-button'
 }))
 
 const closeFormButton = document.querySelector('.form-control-buttons .fa-arrow-left');
+const noteCreationForm = document.querySelector('.note-creation-form');
+const notesSection = document.querySelector('.notes-section');
 
-closeFormButton.addEventListener('click', () => {
-  const noteCreationForm = document.querySelector('.note-creation-form');
-  const notesSection = document.querySelector('.notes-section');
+closeFormButton.addEventListener('click', () => closeNoteCreationForm());
 
-  noteCreationForm.classList.add('display-none');
-  notesSection.classList.remove('stop-scrolling');
-  confirmNoteCreationButton.classList.add('display-none');
+const createNoteButton = document.querySelector('.note-creation-form .change-flex-direction-span .fa-check');
+const noteCreationDate = document.querySelector('#form-date-span');
 
-  clearForm(formHeaderTextarea, symbolsCountSpan, formMainTextarea);
-})
+createNoteButton.addEventListener('click', () => createNewNote(formHeaderTextarea.value, formMainTextarea.value, currentCreationDate));
