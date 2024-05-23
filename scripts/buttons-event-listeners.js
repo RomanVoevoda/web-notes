@@ -60,4 +60,15 @@ sortButton.addEventListener('click', () => {
 
   sortNotesArray();
   refreshMainSection();
-})
+});
+
+const cancelActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-up');
+const backCancelledActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-down');
+
+cancelActionButton.addEventListener('click', () => {
+  document.execCommand('undo');
+});
+
+backCancelledActionButton.addEventListener('click', () => {
+  document.execCommand('redo');
+});
