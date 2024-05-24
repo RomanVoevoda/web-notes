@@ -25,13 +25,7 @@ const openFormButton = document.querySelector('.control-icons-container .fa-plus
 const openFormMobileButton = document.querySelector('.mobile-create-note-button');
 
 [openFormButton, openFormMobileButton].forEach( item => item.addEventListener('click', () => {
-  const noteCreationForm = document.querySelector('.note-creation-form');
-  const notesSection = document.querySelector('.notes-section');
-  const noteCreationDate = document.querySelector('#form-date-span');
-
-  noteCreationForm.classList.remove('display-none');
-  notesSection.classList.add('stop-scrolling');
-  noteCreationDate.innerHTML = setCreationDate(new Date());
+  openNoteCreationForm( new Date() );
 }))
 
 const closeFormButton = document.querySelector('.form-control-buttons .fa-arrow-left');
@@ -60,6 +54,7 @@ sortButton.addEventListener('click', () => {
 
   sortNotesArray();
   refreshMainSection();
+  addEventListenersForNotes();
 });
 
 const cancelActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-up');

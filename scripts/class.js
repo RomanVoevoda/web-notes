@@ -10,10 +10,15 @@ class Note {
   _body = '';
   
   constructor(headerText, mainText, creationDate) {
-    this._header = `<p class="note-header">${headerText}</p>`;
-    this._mainText = `<p class="note-text">${mainText}</p>`;
+    this._header = headerText;
+    this._mainText = mainText;
     this._creationDate = creationDate;
-    this._body = `<article class="small-note"> ${this.header} ${this.mainText} ${this.creationDate} </article>`
+    this._body = `
+      <article class="small-note"> 
+        <p class="note-header">${this.header}</p>
+        <p class="note-text">${this.mainText}</p> 
+        <p class="note-date">${this.creationDate}</p>
+      </article>`;
   }
 
   static compareNotes(firstNote, secondNote) {
@@ -22,6 +27,11 @@ class Note {
 
   static reverseCompareNotes(firstNote, secondNote) {
     return firstNote.dateTimestamp - secondNote.dateTimestamp;
+  }
+
+  changeNote(form) {
+    openNoteCreationForm( new Date(), this.header, this.mainText );
+    form.classList.add('note-changing');
   }
 
   set header(headerText) {
@@ -45,7 +55,7 @@ class Note {
   }
 
   get creationDate() {
-    return `<p class="note-date">${setCreationDate( new Date(this._creationDate) )}</p>`;
+    return setCreationDate( new Date(this._creationDate) );
   }
 
   get dateTimestamp() {

@@ -1,5 +1,19 @@
 'use strict';
 
+let changingNoteIndex = 0;
+
+function openNoteCreationForm(date, header = '', mainText = '') {
+  const noteCreationDate = document.querySelector('#form-date-span');
+
+  noteCreationForm.classList.remove('display-none');
+  notesSection.classList.add('stop-scrolling');
+
+  noteCreationDate.innerHTML = setCreationDate(date);
+  formHeaderTextarea.value = header;
+  formMainTextarea.value = mainText;
+  symbolsCountSpan.innerHTML = calculateSymbolsCount();
+}
+
 function calculateSymbolsCount() {
   return formHeaderTextarea.value.length + formMainTextarea.value.length;
 }
@@ -28,13 +42,24 @@ function closeNoteCreationForm() {
   notesSection.classList.remove('stop-scrolling');
   confirmNoteCreationButton.classList.add('display-none');
 
+  if( noteCreationForm.classList.contains('note-changing') ) {
+    noteCreationForm.classList.remove('note-changing');
+  }
+
   clearForm(formHeaderTextarea, symbolsCountSpan, formMainTextarea);
 }
 
 function createNewNote(header, body, date) {
+  if( noteCreationForm.classList.contains('note-changing') ) {
+    noteCreationForm.classList.remove('note-changing');
+
+    notesArray.splice(changingNoteIndex, 1);
+  }
+
   notesArray.push(new Note(header, body, date));
 
   sortNotesArray();
   refreshMainSection();
+  addEventListenersForNotes();
   closeNoteCreationForm();
 }

@@ -13,3 +13,23 @@ function refreshMainSection() {
   notesColumns[0].innerHTML = (firstColumn.length > 0) ? firstColumn.reduce((column, note) => column + note, '') : '';
   notesColumns[1].innerHTML = (secondColumn.length > 0) ? secondColumn.reduce((column, note) => column + note, '') : '';
 }
+
+function addEventListenersForNotes() {
+  const notesColumns = document.querySelectorAll('.notes-column');
+  let firstColumnNotes = notesColumns[0].querySelectorAll('.small-note');
+  let secondColumnNotes = notesColumns[1].querySelectorAll('.small-note');
+
+  const notes = [];
+
+  for(let i = 0; i < firstColumnNotes.length || i < secondColumnNotes.length; i++) {
+    if(firstColumnNotes[i] != undefined) notes.push(firstColumnNotes[i]);
+    if(secondColumnNotes[i] != undefined) notes.push(secondColumnNotes[i]);
+  }
+
+  for(let i = 0; i < notes.length; i++) {
+    notes[i].addEventListener('click', () => {
+      notesArray[i].changeNote(noteCreationForm);
+      changingNoteIndex = i;
+    });
+  }
+}
