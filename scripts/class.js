@@ -1,6 +1,6 @@
 'use strict';
 
-const notesArray = [];
+let notesArray = [];
 let currentCreationDate;
 
 class Note {
@@ -59,7 +59,7 @@ class Note {
   }
 
   get dateTimestamp() {
-    return Number(this._creationDate);
+    return (this._creationDate instanceof Date) ? Number(this._creationDate) : Number( new Date(this._creationDate) );
   }
 
   get body() {
