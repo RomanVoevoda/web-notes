@@ -24,3 +24,7 @@ header p{
   padding: 0 0.5rem;
   font-size: var(--extra-big-font-size);
 }
+
+header p:hover {
+  cursor: default;
+}
