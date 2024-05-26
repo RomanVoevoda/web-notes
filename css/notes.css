@@ -3,6 +3,8 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  overflow: hidden;
+  word-wrap: break-word;
   padding: 1rem;
   margin: 1rem;
   border-radius: 1rem;
