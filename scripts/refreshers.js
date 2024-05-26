@@ -12,6 +12,8 @@ function refreshMainSection() {
 
   notesColumns[0].innerHTML = (firstColumn.length > 0) ? firstColumn.reduce((column, note) => column + note, '') : '';
   notesColumns[1].innerHTML = (secondColumn.length > 0) ? secondColumn.reduce((column, note) => column + note, '') : '';
+
+  trimNotesText();
 }
 
 function addEventListenersForNotes() {
