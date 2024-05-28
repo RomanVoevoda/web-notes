@@ -33,5 +33,24 @@ function addEventListenersForNotes() {
       notesArray[i].changeNote(noteCreationForm);
       changingNoteIndex = i;
     });
+
+    notes[i].addEventListener('dragstart', (event) => {
+      event.dataTransfer.effectAllowed = "move";
+      draggingNoteIndex = i;
+
+      if( !trashCanContainer.classList.contains('trashcan-under-drop') ) {
+        trashCanContainer.classList.add('trashcan-under-drop');
+      }
+
+      notes[i].classList.add('dragging');
+    });
+
+    notes[i].addEventListener('dragend', () => {
+      notes[i].classList.remove('dragging');
+
+      if( trashCanContainer.classList.contains('trashcan-under-drop') ) {
+        trashCanContainer.classList.remove('trashcan-under-drop');
+      }
+    });
   }
 }

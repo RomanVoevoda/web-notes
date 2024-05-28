@@ -14,7 +14,7 @@ class Note {
     this._mainText = mainText;
     this._creationDate = creationDate;
     this._body = `
-      <article class="small-note"> 
+      <article class="small-note" draggable='true'> 
         <p class="note-header">${this.header}</p>
         <p class="note-text">${this.mainText}</p> 
         <p class="note-date">${this.creationDate}</p>

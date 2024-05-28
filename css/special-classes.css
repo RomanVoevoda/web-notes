@@ -15,3 +15,7 @@
 .stop-scrolling {
   overflow: hidden !important;
 }
+
+.dragging {
+  opacity: 0.8;
+}
