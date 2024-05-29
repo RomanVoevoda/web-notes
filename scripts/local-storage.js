@@ -14,10 +14,9 @@ window.addEventListener('load', () => {
 
     sortNotesArray();
     refreshMainSection();
-    addEventListenersForNotes();
   }
 })
 
 window.addEventListener('beforeunload', () => {
   localStorage.setItem('notesFromStorage', JSON.stringify(notesArray) );
-})
+});

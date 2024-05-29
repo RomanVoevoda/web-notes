@@ -16,5 +16,4 @@ trashCanContainer.addEventListener('drop', (event) => {
   notesArray.splice(draggingNoteIndex, 1);
 
   refreshMainSection();
-  addEventListenersForNotes();
 });

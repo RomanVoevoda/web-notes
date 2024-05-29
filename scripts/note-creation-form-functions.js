@@ -60,6 +60,5 @@ function createNewNote(header, body, date) {
 
   sortNotesArray();
   refreshMainSection();
-  addEventListenersForNotes();
   closeNoteCreationForm();
 }

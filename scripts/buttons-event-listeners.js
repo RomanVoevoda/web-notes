@@ -54,7 +54,6 @@ sortButton.addEventListener('click', () => {
 
   sortNotesArray();
   refreshMainSection();
-  addEventListenersForNotes();
 });
 
 const cancelActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-up');

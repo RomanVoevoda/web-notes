@@ -32,6 +32,10 @@ class Note {
   changeNote(form) {
     openNoteCreationForm( new Date(), this.header, this.mainText );
     form.classList.add('note-changing');
+
+    if(this.header === 'Заголовок' && this.mainText === 'Нет текста') {
+      clearForm(formHeaderTextarea, symbolsCountSpan, formMainTextarea);
+    }
   }
 
   set header(headerText) {
