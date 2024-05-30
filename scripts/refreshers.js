@@ -1,24 +1,33 @@
 'use strict';
 
+const notesColumns = document.querySelectorAll('.notes-column');
+const dumpsterColumns = document.querySelectorAll('.dumpster-column');
+
 function refreshMainSection() {
-  const notesColumns = document.querySelectorAll('.notes-column');
+  setNotesInColumns(notesColumns, notesArray);
+
+  const notesHeaders = document.querySelectorAll('.small-note .note-header');
+  const notesBodies = document.querySelectorAll('.small-note .note-text');
+
+  addEventListenersForNotes();
+  trimNotesText(notesHeaders, notesBodies);
+}
+
+function setNotesInColumns(columns, arrayOfNotes) {
   let firstColumn = [];
   let secondColumn = [];
 
-  for(let i = 1; i - 1 < notesArray.length; i += 2) {
-    if(notesArray[i - 1] != undefined) firstColumn.push(notesArray[i - 1].body);
-    if(notesArray[i] != undefined) secondColumn.push(notesArray[i].body);
+  for(let i = 1; i - 1 < arrayOfNotes.length; i += 2) {
+    if(arrayOfNotes[i - 1] != undefined) firstColumn.push(arrayOfNotes[i - 1].body);
+    if(arrayOfNotes[i] != undefined) secondColumn.push(arrayOfNotes[i].body);
   }
 
-  notesColumns[0].innerHTML = (firstColumn.length > 0) ? firstColumn.reduce((column, note) => column + note, '') : '';
-  notesColumns[1].innerHTML = (secondColumn.length > 0) ? secondColumn.reduce((column, note) => column + note, '') : '';
-
-  addEventListenersForNotes();
-  trimNotesText();
+  columns[0].innerHTML = (firstColumn.length > 0) ? firstColumn.reduce((column, note) => column + note, '') : '';
+  columns[1].innerHTML = (secondColumn.length > 0) ? secondColumn.reduce((column, note) => column + note, '') : '';
 }
 
 function addEventListenersForNotes() {
-  const notes = getArrayWithRenderedNotes();
+  const notes = getArrayWithRenderedNotes(notesColumns, '.small-notes');
 
   for(let i = 0; i < notes.length; i++) {
     notes[i].addEventListener('click', () => {
@@ -47,10 +56,9 @@ function addEventListenersForNotes() {
   }
 }
 
-function getArrayWithRenderedNotes() {
-  const notesColumns = document.querySelectorAll('.notes-column');
-  let firstColumnNotes = notesColumns[0].querySelectorAll('.small-note');
-  let secondColumnNotes = notesColumns[1].querySelectorAll('.small-note');
+function getArrayWithRenderedNotes(columns, notesClass) {
+  let firstColumnNotes = columns[0].querySelectorAll(notesClass);
+  let secondColumnNotes = columns[1].querySelectorAll(notesClass);
 
   const notes = [];
 
@@ -60,4 +68,39 @@ function getArrayWithRenderedNotes() {
   }
 
   return notes;
+}
+
+function refreshDumpster() {
+  setNotesInColumns(dumpsterColumns, dumpsterArray);
+
+  const deletedNotesHeaders = document.querySelectorAll('.deleted-note .note-header');
+  const deletedNotesBodies = document.querySelectorAll('.deleted-note .note-text');
+
+  addEventListenersForDeletedNotes();
+  trimNotesText(deletedNotesHeaders, deletedNotesBodies);
+}
+
+function addEventListenersForDeletedNotes() {
+  const notes = getArrayWithRenderedNotes(dumpsterColumns, '.deleted-note');
+
+  for(let i = 0; i < notes.length; i++) {
+    notes[i].addEventListener('dragstart', (event) => {
+      event.dataTransfer.effectAllowed = "move";
+      draggingNoteIndex = i;
+
+      if( !(recoveryContentContainer.classList.contains('recovery-container-under-drop')) ) {
+        recoveryContentContainer.classList.add('recovery-container-under-drop');
+      }
+
+      notes[i].classList.add('dragging');
+    });
+
+    notes[i].addEventListener('dragend', () => {
+      notes[i].classList.remove('dragging');
+
+      if( recoveryContentContainer.classList.contains('recovery-container-under-drop') ) {
+        recoveryContentContainer.classList.remove('recovery-container-under-drop');
+      }
+    });
+  }
 }

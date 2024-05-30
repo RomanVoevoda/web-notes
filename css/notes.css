@@ -1,4 +1,5 @@
-.small-note {
+.small-note,
+.deleted-note {
   width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -14,11 +15,31 @@
   transition: transform 0.2s ease;
 }
 
-.small-note:hover {
+.deleted-note {
+  position: relative;
+  background-color: rgba(223, 34, 18, 0.7);
+}
+
+.small-note:hover,
+.deleted-note:hover {
   cursor: pointer;
   transform: scale3d(1.01, 1.01, 1.01);
   transform-style: preserve-3d;
 }
+
+.deleted-note:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.deleted-note span{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: var(--header-font-size);
+  color: rgba(240, 120, 16, 1);
+}
+
 .note-header {
   font-size: var(--header-font-size);
   font-weight: 400;

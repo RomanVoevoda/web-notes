@@ -19,3 +19,7 @@
 .dragging {
   opacity: 0.8;
 }
+
+.open-dumpster {
+  transform: translateX(-101%);
+}

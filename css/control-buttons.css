@@ -1,12 +1,20 @@
 .control-icons-container i,
-.form-control-buttons i{
+.form-control-buttons i,
+.dumpster-control-buttons-container i{
   color: rgba(197, 216, 109, 0.8);
   margin: 0.5rem 0.5rem;
   transition: transform 0.3s ease;
 }
 
+.control-icons-container .fa-dumpster,
+.dumpster-control-buttons-container .fa-xmark,
+.dumpster-control-buttons-container .fa-dumpster-fire{
+  color: rgba(223, 34, 18, 0.7);
+}
+
 .control-icons-container i:first-child,
-.form-control-buttons i:first-child{
+.form-control-buttons i:first-child,
+.dumpster-control-buttons-container i:first-child {
   margin-left: 2rem;
 }
 
@@ -27,7 +35,8 @@
   margin-right: 1.5rem;
 }
 
-.control-icons-container .fa-caret-up {
+.control-icons-container .fa-caret-up,
+.dumpster-control-buttons-container .fa-xmark {
   margin-right: 1rem;
   width: 5rem;
   display: flex;
@@ -83,12 +92,19 @@
 @media (hover:hover) {
   .mobile-create-note-button:hover,
   .control-icons-container i:hover,
-  .form-control-buttons i:hover{
+  .form-control-buttons i:hover,
+  .dumpster-control-buttons-container i:hover {
     color: rgba(197, 216, 109, 0.9);
     cursor: pointer;
     transform: scale3d(1.03, 1.03, 1.03);
   }
-
+  
+  .control-icons-container .fa-dumpster:hover,
+  .dumpster-control-buttons-container .fa-xmark:hover,
+  .dumpster-control-buttons-container .fa-dumpster-fire:hover {
+    color: rgba(223, 34, 18, 0.8);
+  }
+  
   .form-control-buttons .fa-arrow-turn-up:hover,
   .form-control-buttons .fa-arrow-turn-down:hover {
     color: rgba(197, 216, 109, 0.9);
@@ -100,9 +116,16 @@
 @media (hover:none){
   .mobile-create-note-button:active,
   .control-icons-container i:active,
-  .form-control-buttons i:active{
+  .form-control-buttons i:active,
+  .dumpster-control-buttons-container i:active{
     color: rgba(197, 216, 109, 0.9)
     transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  .control-icons-container .fa-dumpster:active,
+  .dumpster-control-buttons-container .fa-xmark:active,
+  .dumpster-control-buttons-container .fa-dumpster-fire:active {
+    color: rgba(223, 34, 18, 0.8);
   }
 
   .form-control-buttons .fa-arrow-turn-up:active,

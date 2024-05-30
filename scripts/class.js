@@ -1,6 +1,7 @@
 'use strict';
 
 let notesArray = [];
+let dumpsterArray = [];
 let currentCreationDate;
 
 class Note {
@@ -14,7 +15,7 @@ class Note {
     this._mainText = mainText;
     this._creationDate = creationDate;
     this._body = `
-      <article class="small-note" draggable='true'> 
+      <article class="small-note" draggable="true"> 
         <p class="note-header">${this.header}</p>
         <p class="note-text">${this.mainText}</p> 
         <p class="note-date">${this.creationDate}</p>
@@ -71,4 +72,42 @@ class Note {
   }
 
   [Symbol.toStringTag] = 'Note';
+}
+
+class DeletedNote extends Note {
+  constructor(headerText, mainText, creationDate, deletionDate) {
+    super(headerText, mainText, creationDate);
+    this._deletionDate = deletionDate;
+    this._body = `
+      <article class="deleted-note" draggable="true"> 
+        <p class="note-header">${this.header}</p>
+        <span class="change-flex-direction-span">
+          <i class="fa-solid fa-fire"></i>
+        </span>
+        <p class="note-text">${this.mainText}</p> 
+        <p class="note-date"> До исчезновения ${this.showDaysBeforeVanishing()} дней</p>
+      </article>`;
+  }
+
+  static compareDeletedNotes(firstNote, secondNote) {
+    return secondNote.showDaysBeforeVanishing() - firstNote.showDaysBeforeVanishing();
+  }
+
+  showDaysBeforeVanishing() {
+    let daysBeforeVanishing = 0;
+    let cloneOfDate = new Date(this.deletionDate);
+    let vanishingDate = new Date( this.deletionDate.setDate( this.deletionDate.getDate() + 30 ) );
+  
+    while(Number(vanishingDate) > Number(cloneOfDate)) {
+      cloneOfDate.setDate( cloneOfDate.getDate() + 1 );
+
+      daysBeforeVanishing++;
+    }
+
+    return daysBeforeVanishing;
+  }
+
+  get deletionDate() {
+    return this._deletionDate;
+  }
 }

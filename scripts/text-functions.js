@@ -6,10 +6,7 @@ function trimText(textParagraph, symbolsCount) {
   } 
 }
 
-function trimNotesText() {
-  const notesHeaders = document.querySelectorAll('.note-header');
-  const notesBodies = document.querySelectorAll('.note-text');
-
-  [].forEach.call(notesHeaders, header => trimText(header, 12));
-  [].forEach.call(notesBodies, textBody => trimText(textBody, 40));
+function trimNotesText(headerParagraphs, bodyPargraphs) {
+  [].forEach.call(headerParagraphs, header => trimText(header, 12));
+  [].forEach.call(bodyPargraphs, textBody => trimText(textBody, 40));
 }

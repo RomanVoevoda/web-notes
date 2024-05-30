@@ -66,3 +66,36 @@ cancelActionButton.addEventListener('click', () => {
 backCancelledActionButton.addEventListener('click', () => {
   document.execCommand('redo');
 });
+
+const dumpsterContainer = document.querySelector('.dumpster-container');
+const openDumpsterButton = document.querySelector('#open-dumpster-button');
+const closeDumpsterButton = document.querySelector('#close-dumpster-button');
+
+openDumpsterButton.addEventListener('click', () => {
+  refreshDumpster();
+  dumpsterContainer.classList.add('open-dumpster');
+});
+
+closeDumpsterButton.addEventListener('click', () => {
+  dumpsterContainer.classList.remove('open-dumpster');
+});
+
+const clearDumpsterButton = document.querySelector('#clear-dumpster-button');
+
+clearDumpsterButton.addEventListener('click', () => {
+  dumpsterArray.length = 0;
+  localStorage.setItem('deletedNotesFromStorage', null );
+  refreshDumpster();
+});
+
+const recoveringNotesButton = document.querySelector('#recovering-notes-button');
+
+recoveringNotesButton.addEventListener('click', () => {
+  dumpsterArray.forEach(note => notesArray.push( new Note(note.header, note.mainText, new Date(note.dateTimestamp) ) ));
+
+  dumpsterArray.length = 0;
+
+  refreshDumpster();
+  sortNotesArray();
+  refreshMainSection();
+});

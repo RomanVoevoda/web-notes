@@ -37,9 +37,36 @@
   <section class="main-section rubik-main-font">
     <section class="notes-section">
 
+      <div class="dumpster-container">
+        <div class="dumpster-control-buttons-container">
+          <i class="fa-solid fa-recycle" id="recovering-notes-button"></i>
+          <i class="fa-solid fa-dumpster-fire" id="clear-dumpster-button"></i>
+
+          <span class="change-flex-direction-span">
+            <i class="fa-solid fa-xmark" id="close-dumpster-button"></i>
+          </span>
+        </div>
+
+        <div class="dumpster-columns-container">
+          <div class="dumpster-column"></div>
+
+          <div class="dumpster-column"></div>
+        </div>
+        
+        <div id="recovery-container">
+          <div id="recovery-content-container">
+            <p>
+              <i class="fa-solid fa-recycle"></i>
+              Восстановить
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="control-icons-container">
         <i class="fa-solid fa-arrow-down-wide-short"></i>
         <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-dumpster display-none" id="open-dumpster-button"></i>
   
         <span class="change-flex-direction-span">
           <i class="fa-solid fa-caret-up"></i>
@@ -48,11 +75,9 @@
       </div>
 
       <div class="notes-column-container">
-        <div class="notes-column">
-        </div>
+        <div class="notes-column"></div>
   
-        <div class="notes-column">
-        </div>
+        <div class="notes-column"></div>
       </div>
 
       <div id="trash-can-container">
