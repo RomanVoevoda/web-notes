@@ -1,7 +1,7 @@
 .note-creation-form {
-  position: fixed;
-  top: 6rem;
-  bottom: 8.5rem;
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
   z-index: 100;
   overflow-x: hidden;
   overflow-y: scroll;

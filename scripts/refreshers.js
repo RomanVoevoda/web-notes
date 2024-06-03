@@ -27,7 +27,7 @@ function setNotesInColumns(columns, arrayOfNotes) {
 }
 
 function addEventListenersForNotes() {
-  const notes = getArrayWithRenderedNotes(notesColumns, '.small-notes');
+  const notes = getArrayWithRenderedNotes(notesColumns, '.small-note');
 
   for(let i = 0; i < notes.length; i++) {
     notes[i].addEventListener('click', () => {
