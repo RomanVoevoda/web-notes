@@ -37,7 +37,7 @@
   background: transparent;
 }
 
-.control-icons-container, .dumpster-control-buttons-container {
+.control-buttons-container, .dumpster-control-buttons-container {
   display: flex;
   flex-direction: row;
   width: 100%;

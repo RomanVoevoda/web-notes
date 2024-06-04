@@ -1,11 +1,11 @@
 'use strict';
 
-const hideControlPanelButton = document.querySelector('.control-icons-container .fa-caret-up');
-const openControlPanelButton = document.querySelector('.control-icons-container .fa-caret-down');
+const hideControlPanelButton = document.querySelector('#hide-control-panel-button');
+const openControlPanelButton = document.querySelector('#open-control-panel-button');
 
 hideControlPanelButton.addEventListener('click', () => {
-  const controlIconsContainer = document.querySelector('.control-icons-container');
-  const notesColumnsContainer = document.querySelector('.notes-column-container');
+  const controlIconsContainer = document.querySelector('#main-control-buttons-container');
+  const notesColumnsContainer = document.querySelector('#notes-column-container');
 
   controlIconsContainer.classList.add('hide');
   notesColumnsContainer.classList.add('hide');
@@ -13,35 +13,40 @@ hideControlPanelButton.addEventListener('click', () => {
 })
 
 openControlPanelButton.addEventListener('click', () => {
-  const controlIconsContainer = document.querySelector('.control-icons-container');
-  const notesColumnsContainer = document.querySelector('.notes-column-container');
+  const controlIconsContainer = document.querySelector('#main-control-buttons-container');
+  const notesColumnsContainer = document.querySelector('#notes-column-container');
 
   controlIconsContainer.classList.remove('hide');
   notesColumnsContainer.classList.remove('hide');
   openControlPanelButton.classList.add('display-none');
 })
 
-const openFormButton = document.querySelector('.control-icons-container .fa-plus');
-const openFormMobileButton = document.querySelector('.mobile-create-note-button');
+const openFormButton = document.querySelector('#open-note-creation-form-button');
+const openFormMobileButton = document.querySelector('#open-note-creation-form-mobile-button');
 
-[openFormButton, openFormMobileButton].forEach( item => item.addEventListener('click', () => {
+[openFormButton, openFormMobileButton].forEach( button => button.addEventListener('click', () => {
   openNoteCreationForm( new Date() );
+
+  [formHeaderTextarea, formMainTextarea].forEach( textarea => textarea.addEventListener('keyup', () => {
+    if(createNoteButton.classList.contains('display-none')) createNoteButton.classList.remove('display-none');
+  },
+  {once: true}));
 }))
 
-const closeFormButton = document.querySelector('.form-control-buttons .fa-arrow-left');
-const noteCreationForm = document.querySelector('.note-creation-form');
-const notesSection = document.querySelector('.notes-section');
+const closeFormButton = document.querySelector('#close-note-creation-form-button');
+const noteCreationForm = document.querySelector('#note-creation-form');
+const notesSection = document.querySelector('#main-notes-section');
 
 closeFormButton.addEventListener('click', () => closeNoteCreationForm());
 
-const createNoteButton = document.querySelector('.note-creation-form .change-flex-direction-span .fa-check');
+const createNoteButton = document.querySelector('#create-note-button');
 const noteCreationDate = document.querySelector('#form-date-span');
 
 createNoteButton.addEventListener('click', () => createNewNote(formHeaderTextarea.value, formMainTextarea.value, currentCreationDate));
 
 
 
-const sortButton = document.querySelector('.control-icons-container i:first-child')
+const sortButton = document.querySelector('#sort-notes-section-button');
 
 sortButton.addEventListener('click', () => {
   if( sortButton.classList.contains('fa-arrow-down-wide-short') ) {
@@ -56,8 +61,8 @@ sortButton.addEventListener('click', () => {
   refreshMainSection();
 });
 
-const cancelActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-up');
-const backCancelledActionButton = document.querySelector('.note-creation-form .fa-arrow-turn-down');
+const cancelActionButton = document.querySelector('#cancel-action-button');
+const backCancelledActionButton = document.querySelector('#back-cancelled-action-button');
 
 cancelActionButton.addEventListener('click', () => {
   document.execCommand('undo');
@@ -67,7 +72,7 @@ backCancelledActionButton.addEventListener('click', () => {
   document.execCommand('redo');
 });
 
-const dumpsterContainer = document.querySelector('.dumpster-container');
+const dumpsterContainer = document.querySelector('#dumpster-container');
 const openDumpsterButton = document.querySelector('#open-dumpster-button');
 const closeDumpsterButton = document.querySelector('#close-dumpster-button');
 

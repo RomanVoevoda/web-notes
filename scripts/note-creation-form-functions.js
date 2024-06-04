@@ -40,7 +40,7 @@ function clearForm(header, symbolsCount, mainText) {
 function closeNoteCreationForm() {
   noteCreationForm.classList.add('display-none');
   notesSection.classList.remove('stop-scrolling');
-  confirmNoteCreationButton.classList.add('display-none');
+  createNoteButton.classList.add('display-none');
 
   if( noteCreationForm.classList.contains('note-changing') ) {
     noteCreationForm.classList.remove('note-changing');

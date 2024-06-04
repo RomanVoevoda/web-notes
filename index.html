@@ -35,20 +35,20 @@
   </header>
 
   <section class="main-section rubik-main-font">
-    <section class="notes-section">
+    <section class="notes-section" id="main-notes-section">
 
-      <div class="control-icons-container">
-        <i class="fa-solid fa-arrow-down-wide-short"></i>
-        <i class="fa-solid fa-plus"></i>
-        <i class="fa-solid fa-dumpster display-none" id="open-dumpster-button"></i>
+      <div class="control-buttons-container" id="main-control-buttons-container">
+        <i class="fa-solid fa-arrow-down-wide-short control-button" id="sort-notes-section-button"></i>
+        <i class="fa-solid fa-plus control-button" id="open-note-creation-form-button"></i>
+        <i class="fa-solid fa-dumpster display-none red-control-button" id="open-dumpster-button"></i>
   
         <span class="change-flex-direction-span">
-          <i class="fa-solid fa-caret-up"></i>
-          <i class="fa-solid fa-caret-down display-none"></i>
+          <i class="fa-solid fa-caret-up control-button" id="hide-control-panel-button"></i>
+          <i class="fa-solid fa-caret-down control-button display-none" id="open-control-panel-button"></i>
         </span>
       </div>
 
-      <div class="notes-column-container">
+      <div class="notes-column-container" id="notes-column-container">
         <div class="notes-column"></div>
   
         <div class="notes-column"></div>
@@ -63,19 +63,19 @@
         </div>
       </div>
 
-      <button class="mobile-create-note-button">
+      <button class="open-note-creation-form-mobile-button" id="open-note-creation-form-mobile-button">
         <i class="fa-solid fa-plus"></i>
       </button>
 
     </section>
 
-    <div class="dumpster-container rubik-main-font">
+    <div class="dumpster-container rubik-main-font" id="dumpster-container">
       <div class="dumpster-control-buttons-container">
-        <i class="fa-solid fa-recycle" id="recovering-notes-button"></i>
-        <i class="fa-solid fa-dumpster-fire" id="clear-dumpster-button"></i>
+        <i class="fa-solid fa-recycle control-button" id="recovering-notes-button"></i>
+        <i class="fa-solid fa-dumpster-fire red-control-button" id="clear-dumpster-button"></i>
   
         <span class="change-flex-direction-span">
-          <i class="fa-solid fa-xmark" id="close-dumpster-button"></i>
+          <i class="fa-solid fa-xmark red-control-button" id="close-dumpster-button"></i>
         </span>
       </div>
   
@@ -95,14 +95,14 @@
       </div>
     </div>
     
-    <form class="note-creation-form rubik-main-font display-none">
+    <form class="note-creation-form rubik-main-font display-none" id="note-creation-form">
       <div class="form-control-buttons">
-        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-left control-button" id="close-note-creation-form-button"></i>
   
         <span class="change-flex-direction-span">
-          <i class="fa-solid fa-check display-none"></i>
-          <i class="fa-solid fa-arrow-turn-down"></i>
-          <i class="fa-solid fa-arrow-turn-up"></i>  
+          <i class="fa-solid fa-check control-button display-none" id="create-note-button"></i>
+          <i class="fa-solid fa-arrow-turn-down control-button" id="back-cancelled-action-button"></i>
+          <i class="fa-solid fa-arrow-turn-up control-button" id="cancel-action-button"></i>  
         </span>
       </div>
   
