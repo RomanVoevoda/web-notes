@@ -75,6 +75,10 @@ class Note {
 }
 
 class DeletedNote extends Note {
+  static days = ['дней', 'день', 'дня', 'дня', 'дня', 'дней', 'дней', 'дней', 'дней', 'дней'];
+
+  _daysBeforeVanishing = 0;
+
   constructor(headerText, mainText, creationDate, deletionDate) {
     super(headerText, mainText, creationDate);
     this._deletionDate = deletionDate;
@@ -85,7 +89,7 @@ class DeletedNote extends Note {
           <i class="fa-solid fa-fire"></i>
         </span>
         <p class="note-text">${this.mainText}</p> 
-        <p class="note-date"> До исчезновения ${this.showDaysBeforeVanishing()} дней</p>
+        <p class="note-date"> До исчезновения ${this.showDaysBeforeVanishing()} ${this.showCorrectDays()}</p>
       </article>`;
   }
 
@@ -104,10 +108,32 @@ class DeletedNote extends Note {
       daysBeforeVanishing++;
     }
 
+    this._daysBeforeVanishing = daysBeforeVanishing;
+
     return daysBeforeVanishing;
   }
 
+  showCorrectDays() {
+    return DeletedNote.days[ (10 <= this.daysBeforeVanishing && this.daysBeforeVanishing < 20) ? 9 : String(this.daysBeforeVanishing).at(-1) ];
+  }
+
+  refreshBody() {
+    this._body = `
+    <article class="deleted-note" draggable="true"> 
+      <p class="note-header">${this.header}</p>
+      <span class="change-flex-direction-span">
+        <i class="fa-solid fa-fire"></i>
+      </span>
+      <p class="note-text">${this.mainText}</p> 
+      <p class="note-date"> До исчезновения ${this.showDaysBeforeVanishing()} ${this.showCorrectDays()}</p>
+    </article>`;
+  }
+
   get deletionDate() {
-    return this._deletionDate;
+    return (this._deletionDate instanceof Date) ? this._deletionDate : new Date(this._deletionDate);
+  }
+
+  get daysBeforeVanishing() {
+    return this._daysBeforeVanishing;
   }
 }

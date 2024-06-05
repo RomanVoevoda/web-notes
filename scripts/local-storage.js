@@ -22,7 +22,10 @@ window.addEventListener('load', () => {
 
     dumpsterArray.forEach(note => {
       Object.setPrototypeOf(note, DeletedNote.prototype);
+      note.refreshBody();
     });
+
+    deleteGarbage(dumpsterArray);
 
     openDumpsterButton.classList.remove('display-none');
   }

@@ -76,6 +76,7 @@ function refreshDumpster() {
   const deletedNotesHeaders = document.querySelectorAll('.deleted-note .note-header');
   const deletedNotesBodies = document.querySelectorAll('.deleted-note .note-text');
 
+  sortDumpsterArray();
   addEventListenersForDeletedNotes();
   trimNotesText(deletedNotesHeaders, deletedNotesBodies);
 }
