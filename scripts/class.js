@@ -32,6 +32,12 @@ class Note {
 
   changeNote(form) {
     openNoteCreationForm( new Date(), this.header, this.mainText );
+    
+    [formHeaderTextarea, formMainTextarea].forEach( textarea => textarea.addEventListener('keyup', () => {
+      if(createNoteButton.classList.contains('display-none')) createNoteButton.classList.remove('display-none');
+    },
+    {once: true}));
+
     form.classList.add('note-changing');
 
     if(this.header === 'Заголовок' && this.mainText === 'Нет текста') {
