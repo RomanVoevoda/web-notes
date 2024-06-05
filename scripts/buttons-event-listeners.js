@@ -9,6 +9,7 @@ hideControlPanelButton.addEventListener('click', () => {
 
   controlIconsContainer.classList.add('hide');
   notesColumnsContainer.classList.add('hide');
+  notesColumnsContainer.style.minHeight = 'calc(100% - 5rem)';
   setTimeout( () => openControlPanelButton.classList.remove('display-none'), 300);
 })
 
@@ -18,6 +19,7 @@ openControlPanelButton.addEventListener('click', () => {
 
   controlIconsContainer.classList.remove('hide');
   notesColumnsContainer.classList.remove('hide');
+  setTimeout(() => notesColumnsContainer.style.minHeight = 'calc(100% - 11rem)', 300);
   openControlPanelButton.classList.add('display-none');
 })
 

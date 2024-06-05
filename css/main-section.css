@@ -16,11 +16,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   width: 100%;
   min-height: inherit;
-  margin: 1rem 0;
+  margin-top: 1rem;
   border-radius: 1rem;
   background:  linear-gradient(180deg, rgba(34, 40, 49, 0.1) 0%, rgba(34, 40, 49, 0.2) 100%);
   scrollbar-color: transparent;
@@ -62,7 +61,7 @@
   min-height: inherit;
   position: absolute;
   top: 1rem;
-  bottom: 1rem;
+  bottom: 0;
   right: -101%;
   z-index: 100;
   border-radius: 1rem;
@@ -72,16 +71,13 @@
 
 .notes-column-container, .dumpster-columns-container {
   display: flex;
-  transition: transform 0.3s ease;
-  position: relative;
-  margin-bottom: 6rem;
-}
-
-.dumpster-columns-container {
-  min-height: calc(100% - 12rem);
+  min-height: calc(100% - 11rem);
   overflow-y: scroll;
   scrollbar-color: transparent;
   scrollbar-width: none !important;
+  transition: transform 0.3s ease;
+  position: relative;
+  margin-bottom: 6rem;
 }
 
 .notes-column, .dumpster-column {
@@ -101,14 +97,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 9rem;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
   border-radius: 1rem;
   background:rgba(242,242,242,1);
-}
-
-#trash-can-container {
-  width: calc(100% - 2rem);
 }
 
 #recovery-container {

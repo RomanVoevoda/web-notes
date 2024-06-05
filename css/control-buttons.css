@@ -60,11 +60,13 @@
 }
 
 .open-note-creation-form-mobile-button {
-  position: fixed;
-  bottom: 18rem;
+  position: -webkit-sticky;
+  position: sticky;
+  align-self: flex-end;
+  bottom: 10rem;
   right: 2rem;
   width: 5rem;
-  height: 5rem;
+  min-height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
