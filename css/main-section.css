@@ -1,7 +1,7 @@
 .main-section {
   position: relative;
   width: calc(100% - 2rem);
-  min-height: calc(100vh - 17rem);
+  min-height: calc(100dvh - 17rem);
   margin: 0 1rem;
   overflow: hidden;
   display: flex;
