@@ -39,8 +39,8 @@ function addEventListenersForNotes() {
       event.dataTransfer.effectAllowed = "move";
       draggingNoteIndex = i;
 
-      if( !trashCanContainer.classList.contains('trashcan-under-drop') ) {
-        trashCanContainer.classList.add('trashcan-under-drop');
+      if( !trashCanContainer.classList.contains('trashcan-ondragstart') ) {
+        trashCanContainer.classList.add('trashcan-ondragstart');
       }
 
       notes[i].classList.add('dragging');
@@ -48,6 +48,10 @@ function addEventListenersForNotes() {
 
     notes[i].addEventListener('dragend', () => {
       notes[i].classList.remove('dragging');
+
+      if( trashCanContainer.classList.contains('trashcan-ondragstart') ) {
+        trashCanContainer.classList.remove('trashcan-ondragstart');
+      }
 
       if( trashCanContainer.classList.contains('trashcan-under-drop') ) {
         trashCanContainer.classList.remove('trashcan-under-drop');
@@ -89,8 +93,8 @@ function addEventListenersForDeletedNotes() {
       event.dataTransfer.effectAllowed = "move";
       draggingNoteIndex = i;
 
-      if( !(recoveryContentContainer.classList.contains('recovery-container-under-drop')) ) {
-        recoveryContentContainer.classList.add('recovery-container-under-drop');
+      if( !(recoveryContentContainer.classList.contains('recovery-container-ondragstart')) ) {
+        recoveryContentContainer.classList.add('recovery-container-ondragstart');
       }
 
       notes[i].classList.add('dragging');
@@ -98,6 +102,10 @@ function addEventListenersForDeletedNotes() {
 
     notes[i].addEventListener('dragend', () => {
       notes[i].classList.remove('dragging');
+
+      if( recoveryContentContainer.classList.contains('recovery-container-ondragstart') ) {
+        recoveryContentContainer.classList.remove('recovery-container-ondragstart');
+      }
 
       if( recoveryContentContainer.classList.contains('recovery-container-under-drop') ) {
         recoveryContentContainer.classList.remove('recovery-container-under-drop');

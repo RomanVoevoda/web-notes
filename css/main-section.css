@@ -141,23 +141,43 @@
   cursor: default;
 }
 
-.trashcan-under-drop {
+.trashcan-ondragstart div {
   border-color: rgba(223, 34, 18, 0.7) !important;
   color: rgba(223, 34, 18, 0.7) !important;
 }
 
-.recovery-container-under-drop {
+.trashcan-under-drop {
+  background-color: rgba(223, 34, 18, 0.7) !important;
+}
+
+.trashcan-under-drop div{
+  color: rgba(242,242,242,1) !important;
+  pointer-events: none;
+  /*свойство выше не вызывает событие dragleave на дочернем элементе*/
+}
+
+.recovery-container-ondragstart div {
   border-color: rgba(197, 216, 109, 0.8) !important;
   color: rgba(197, 216, 109, 0.8) !important;
 }
 
-.recovery-container-under-drop p i {
+.recovery-container-under-drop {
+  background-color: rgba(197, 216, 109, 0.8) !important;
+}
+
+.recovery-container-under-drop div {
+  color: rgba(28, 17, 36, 1) !important;
+  pointer-events: none;
+  /*свойство выше не вызывает событие dragleave на дочернем элементе*/
+}
+
+.recovery-container-ondragstart div p i {
   transition: transform 0.1s ease;
   -webkit-animation: rotateIcon 4s ease infinite;
           animation: rotateIcon 4s ease infinite
 }
 
-.trashcan-under-drop p i {
+.trashcan-ondragstart div p i {
   transition: transform 0.1s ease;
   -webkit-animation: shaking 3s ease infinite;
           animation: shaking 3s ease infinite;

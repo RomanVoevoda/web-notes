@@ -7,6 +7,14 @@ function trimText(textParagraph, symbolsCount) {
 }
 
 function trimNotesText(headerParagraphs, bodyPargraphs) {
-  [].forEach.call(headerParagraphs, header => trimText(header, 12));
-  [].forEach.call(bodyPargraphs, textBody => trimText(textBody, 40));
+  if(window.innerWidth < 600) {
+    [].forEach.call(headerParagraphs, header => trimText(header, 9));
+    [].forEach.call(bodyPargraphs, textBody => trimText(textBody, 40));
+  } else if((window.innerWidth < 1200)) {
+    [].forEach.call(headerParagraphs, header => trimText(header, 15));
+    [].forEach.call(bodyPargraphs, textBody => trimText(textBody, 40));
+  } else {
+    [].forEach.call(headerParagraphs, header => trimText(header, 24));
+    [].forEach.call(bodyPargraphs, textBody => trimText(textBody, 40));
+  }
 }

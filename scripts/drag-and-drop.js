@@ -2,15 +2,25 @@
 
 let draggingNoteIndex = 0;
 
-const trashCanContainer = document.querySelector('#trash-can-content-container');
+const trashCanContainer = document.querySelector('#trash-can-container');
 
 trashCanContainer.addEventListener('dragover', event => event.preventDefault() );
+
+trashCanContainer.addEventListener('dragenter', () => {
+  trashCanContainer.classList.add('trashcan-under-drop');
+});
+
+trashCanContainer.addEventListener('dragleave', () => {
+  if( trashCanContainer.classList.contains('trashcan-under-drop') ) {
+    trashCanContainer.classList.remove('trashcan-under-drop');
+  }
+});
 
 trashCanContainer.addEventListener('drop', event => {
   event.preventDefault();
 
-  if( trashCanContainer.classList.contains('trashcan-under-drop') ) {
-    trashCanContainer.classList.remove('trashcan-under-drop');
+  if( trashCanContainer.classList.contains('trashcan-ondragstart') ) {
+    trashCanContainer.classList.remove('trashcan-ondragstart');
   }
 
   if( openDumpsterButton.classList.contains('display-none') ) {
@@ -23,12 +33,26 @@ trashCanContainer.addEventListener('drop', event => {
   refreshMainSection();
 });
 
-const recoveryContentContainer = document.querySelector('#recovery-content-container');
+const recoveryContentContainer = document.querySelector('#recovery-container');
 
 recoveryContentContainer.addEventListener('dragover', event => event.preventDefault() );
 
+recoveryContentContainer.addEventListener('dragenter', () => {
+  recoveryContentContainer.classList.add('recovery-container-under-drop');
+});
+
+recoveryContentContainer.addEventListener('dragleave', () => {
+  if( recoveryContentContainer.classList.contains('recovery-container-under-drop') ) {
+    recoveryContentContainer.classList.remove('recovery-container-under-drop');
+  }
+});
+
 recoveryContentContainer.addEventListener('drop', event => {
   event.preventDefault();
+
+  if( recoveryContentContainer.classList.contains('recovery-container-ondragstart') ) {
+    recoveryContentContainer.classList.remove('recovery-container-ondragstart');
+  }
 
   if( recoveryContentContainer.classList.contains('recovery-container-under-drop') ) {
     recoveryContentContainer.classList.remove('recovery-container-under-drop');
